@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-export function Name() {
-  const [name, setName] = useState("");
+function Name({ name, setName }) {
   return (
     <label>
       Full name :
@@ -14,7 +13,7 @@ export function Name() {
   );
 }
 
-export function Email() {
+function Email() {
   const [email, setEmail] = useState("");
   return (
     <label>
@@ -28,7 +27,7 @@ export function Email() {
   );
 }
 
-export function Phone() {
+function Phone() {
   const [phone, setPhone] = useState("");
 
   return (
@@ -40,5 +39,33 @@ export function Phone() {
         onChange={(e) => setPhone(e.target.value)}
       />
     </label>
+  );
+}
+
+function updateFields(name) {}
+
+export function Personal() {
+  const [name, setName] = useState("");
+  const [submittedName, setSubmittedName] = useState("");
+
+  return (
+    <>
+      <Name name={name} setName={setName} />
+      <br />
+      <Email />
+      <br />
+      <Phone />
+      <br />
+      <button
+        onClick={() => {
+          {
+            setSubmittedName(name);
+          }
+        }}
+      >
+        Submit
+      </button>
+      <div>Full name : {submittedName}</div>
+    </>
   );
 }
