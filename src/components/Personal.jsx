@@ -66,17 +66,15 @@ export function Personal() {
       <br />
       <button
         onClick={() => {
-          {
-            if (buttonContent === "Submit") {
-              setSubmittedName(name);
-              setSubmittedEmail(email);
-              setSubmittedPhone(phone);
-              setDisplay("none");
-              setButtonContent("Edit");
-            } else {
-              setDisplay("inline");
-              setButtonContent("Submit");
-            }
+          if (buttonContent === "Submit") {
+            setSubmittedName(name);
+            setSubmittedEmail(email);
+            setSubmittedPhone(phone);
+            setDisplay("none");
+            setButtonContent("Edit");
+          } else {
+            setDisplay("inline");
+            setButtonContent("Submit");
           }
         }}
       >
