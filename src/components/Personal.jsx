@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Name({ name, setName }) {
+function Name({ name, setName, display }) {
   return (
     <label>
       Full name :
@@ -8,12 +8,13 @@ function Name({ name, setName }) {
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
+        style={{ display: display }}
       />
     </label>
   );
 }
 
-function Email({ email, setEmail }) {
+function Email({ email, setEmail, display }) {
   return (
     <label>
       Email :
@@ -21,12 +22,13 @@ function Email({ email, setEmail }) {
         type="text"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
+        style={{ display: display }}
       />
     </label>
   );
 }
 
-function Phone({ phone, setPhone }) {
+function Phone({ phone, setPhone, display }) {
   return (
     <label>
       Phone number :
@@ -34,6 +36,7 @@ function Phone({ phone, setPhone }) {
         type="text"
         value={phone}
         onChange={(e) => setPhone(e.target.value)}
+        style={{ display: display }}
       />
     </label>
   );
@@ -49,24 +52,35 @@ export function Personal() {
   const [phone, setPhone] = useState("");
   const [submittedPhone, setSubmittedPhone] = useState("");
 
+  const [display, setDisplay] = useState("inline");
+
+  const [buttonContent, setButtonContent] = useState("Submit");
+
   return (
     <>
-      <Name name={name} setName={setName} />
+      <Name name={name} setName={setName} display={display} />
       <br />
-      <Email email={email} setEmail={setEmail} />
+      <Email email={email} setEmail={setEmail} display={display} />
       <br />
-      <Phone phone={phone} setPhone={setPhone} />
+      <Phone phone={phone} setPhone={setPhone} display={display} />
       <br />
       <button
         onClick={() => {
           {
-            setSubmittedName(name);
-            setSubmittedEmail(email);
-            setSubmittedPhone(phone);
+            if (buttonContent === "Submit") {
+              setSubmittedName(name);
+              setSubmittedEmail(email);
+              setSubmittedPhone(phone);
+              setDisplay("none");
+              setButtonContent("Edit");
+            } else {
+              setDisplay("inline");
+              setButtonContent("Submit");
+            }
           }
         }}
       >
-        Submit
+        {buttonContent}
       </button>
       <div>Full name : {submittedName}</div>
       <div>Email : {submittedEmail}</div>
