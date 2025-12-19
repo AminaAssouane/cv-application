@@ -13,8 +13,7 @@ function Name({ name, setName }) {
   );
 }
 
-function Email() {
-  const [email, setEmail] = useState("");
+function Email({ email, setEmail }) {
   return (
     <label>
       Email :
@@ -27,9 +26,7 @@ function Email() {
   );
 }
 
-function Phone() {
-  const [phone, setPhone] = useState("");
-
+function Phone({ phone, setPhone }) {
   return (
     <label>
       Phone number :
@@ -42,30 +39,38 @@ function Phone() {
   );
 }
 
-function updateFields(name) {}
-
 export function Personal() {
   const [name, setName] = useState("");
   const [submittedName, setSubmittedName] = useState("");
+
+  const [email, setEmail] = useState("");
+  const [submittedEmail, setSubmittedEmail] = useState("");
+
+  const [phone, setPhone] = useState("");
+  const [submittedPhone, setSubmittedPhone] = useState("");
 
   return (
     <>
       <Name name={name} setName={setName} />
       <br />
-      <Email />
+      <Email email={email} setEmail={setEmail} />
       <br />
-      <Phone />
+      <Phone phone={phone} setPhone={setPhone} />
       <br />
       <button
         onClick={() => {
           {
             setSubmittedName(name);
+            setSubmittedEmail(email);
+            setSubmittedPhone(phone);
           }
         }}
       >
         Submit
       </button>
       <div>Full name : {submittedName}</div>
+      <div>Email : {submittedEmail}</div>
+      <div>Phone : {submittedPhone}</div>
     </>
   );
 }
