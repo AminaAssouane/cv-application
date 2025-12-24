@@ -42,7 +42,7 @@ function DateStudy({ dateStudy, setDateStudy, display }) {
   );
 }
 
-export function Education() {
+export function EducationForm() {
   const [schoolName, setSchoolName] = useState("");
   const [submittedSchoolName, setSubmittedSchoolName] = useState("");
 

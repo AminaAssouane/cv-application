@@ -42,7 +42,7 @@ function DateWork({ dateWork, setDateWork, display }) {
   );
 }
 
-export function Experience() {
+export function ExperienceForm() {
   const [companyName, setCompanyName] = useState("");
   const [submittedCompanyName, setSubmittedCompanyName] = useState("");
 

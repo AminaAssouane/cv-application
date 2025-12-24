@@ -1,0 +1,20 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+}
+
+.sidebar {
+  background-color: #f4f4f4;
+  padding: 1rem;
+}
+
+.content {
+  background-color: white;
+  padding: 2rem;
+}
