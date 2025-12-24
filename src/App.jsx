@@ -26,6 +26,11 @@ export function App() {
     titleStudy: "",
     dateStudy: "",
   });
+  const [educationSubmitted, setEducationSubmitted] = useState({
+    schoolName: "",
+    titleStudy: "",
+    dateStudy: "",
+  });
   const [isEditingEducation, setIsEditingEducation] = useState(true);
 
   // Experience
@@ -41,7 +46,6 @@ export function App() {
         <PersonalForm
           personal={personal}
           setPersonal={setPersonal}
-          submitted={personalSubmitted}
           setSubmitted={setPersonalSubmitted}
           isEditing={isEditingPersonal}
           setIsEditing={setIsEditingPersonal}
@@ -50,13 +54,14 @@ export function App() {
         <EducationForm
           education={education}
           setEducation={setEducation}
+          setSubmitted={setEducationSubmitted}
           isEditing={isEditingEducation}
           setIsEditing={setIsEditingEducation}
         />
       </aside>
       <main className="cv">
         <PersonalDisplay personal={personalSubmitted} />
-        <EducationDisplay education={education} />
+        <EducationDisplay education={educationSubmitted} />
       </main>
     </div>
   );

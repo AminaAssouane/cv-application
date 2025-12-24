@@ -1,7 +1,6 @@
 export function PersonalForm({
   personal,
   setPersonal,
-  submitted,
   setSubmitted,
   isEditing,
   setIsEditing,
