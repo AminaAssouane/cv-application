@@ -1,100 +1,57 @@
-import { useState } from "react";
-
-function CompanyName({ companyName, setCompanyName, display }) {
-  return (
-    <label>
-      Company Name :
-      <input
-        type="text"
-        value={companyName}
-        onChange={(e) => setCompanyName(e.target.value)}
-        style={{ display: display }}
-      ></input>
-    </label>
-  );
-}
-
-function PositionTitle({ positionTitle, setPositionTitle, display }) {
-  return (
-    <label>
-      Position title :
-      <input
-        type="text"
-        value={positionTitle}
-        onChange={(e) => setPositionTitle(e.target.value)}
-        style={{ display: display }}
-      ></input>
-    </label>
-  );
-}
-
-function DateWork({ dateWork, setDateWork, display }) {
-  return (
-    <label>
-      Date of work :
-      <input
-        type="date"
-        value={dateWork}
-        onChange={(e) => setDateWork(e.target.value)}
-        style={{ display: display }}
-      ></input>
-    </label>
-  );
-}
-
-export function ExperienceForm() {
-  const [companyName, setCompanyName] = useState("");
-  const [submittedCompanyName, setSubmittedCompanyName] = useState("");
-
-  const [positionTitle, setPositionTitle] = useState("");
-  const [submittedPositionTitle, setSubmittedPositionTitle] = useState("");
-
-  const [dateWork, setDateWork] = useState("");
-  const [submittedDateWork, setSubmittedDateWork] = useState("");
-
-  const [display, setDisplay] = useState("inline");
-
-  const [buttonContent, setButtonContent] = useState("Submit");
-
+export function ExperienceForm({
+  experience,
+  setExperience,
+  setSubmitted,
+  isEditing,
+  setIsEditing,
+}) {
+  function handleSubmit() {
+    setSubmitted(experience);
+    setIsEditing(false);
+  }
   return (
     <>
-      <CompanyName
-        companyName={companyName}
-        setCompanyName={setCompanyName}
-        display={display}
-      />
-      <br />
-      <PositionTitle
-        positionTitle={positionTitle}
-        setPositionTitle={setPositionTitle}
-        display={display}
-      />
-      <br />
-      <DateWork
-        dateWork={dateWork}
-        setDateWork={setDateWork}
-        display={display}
-      />
-      <br />
-      <button
-        onClick={() => {
-          if (buttonContent === "Submit") {
-            setSubmittedCompanyName(companyName);
-            setSubmittedPositionTitle(positionTitle);
-            setSubmittedDateWork(dateWork);
-            setButtonContent("Edit");
-            setDisplay("none");
-          } else {
-            setButtonContent("Submit");
-            setDisplay("inline");
+      <label>
+        Company Name :
+        <input
+          type="text"
+          value={experience.companyName}
+          disabled={!isEditing}
+          onChange={(e) =>
+            setExperience({ ...experience, companyName: e.target.value })
           }
-        }}
-      >
-        {buttonContent}
-      </button>
-      <div>Company name : {submittedCompanyName}</div>
-      <div>Position title : {submittedPositionTitle}</div>
-      <div>Date of Work : {submittedDateWork}</div>
+        ></input>
+      </label>
+      <br />
+      <label>
+        Position title :
+        <input
+          type="text"
+          value={experience.positionTitle}
+          disabled={!isEditing}
+          onChange={(e) =>
+            setExperience({ ...experience, positionTitle: e.target.value })
+          }
+        ></input>
+      </label>
+      <br />
+      <label>
+        Date of work :
+        <input
+          type="date"
+          value={experience.dateWork}
+          disabled={!isEditing}
+          onChange={(e) =>
+            setExperience({ ...experience, dateWork: e.target.value })
+          }
+        ></input>
+      </label>
+      <br />
+      {isEditing ? (
+        <button onClick={handleSubmit}>Submit</button>
+      ) : (
+        <button onClick={() => setIsEditing(true)}>Edit</button>
+      )}
     </>
   );
 }

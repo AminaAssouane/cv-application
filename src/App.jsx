@@ -3,8 +3,8 @@ import { PersonalForm } from "./components/PersonalForm";
 import { PersonalDisplay } from "./components/PersonalDisplay";
 import { EducationForm } from "./components/EducationForm";
 import { EducationDisplay } from "./components/EducationDisplay";
-/*import { ExperienceForm } from "./components/ExperienceForm";
-import { ExperienceDisplay } from "./components/ExperienceDisplay";*/
+import { ExperienceForm } from "./components/ExperienceForm";
+import { ExperienceDisplay } from "./components/ExperienceDisplay";
 
 export function App() {
   // Personal
@@ -39,6 +39,12 @@ export function App() {
     positionTitle: "",
     dateWork: "",
   });
+  const [experienceSubmitted, setExperienceSubmitted] = useState({
+    companyName: "",
+    positionTitle: "",
+    dateWork: "",
+  });
+  const [isEditingExperience, setIsEditingExperience] = useState(true);
 
   return (
     <div className="layout">
@@ -58,10 +64,19 @@ export function App() {
           isEditing={isEditingEducation}
           setIsEditing={setIsEditingEducation}
         />
+
+        <ExperienceForm
+          experience={experience}
+          setExperience={setExperience}
+          setSubmitted={setExperienceSubmitted}
+          isEditing={isEditingExperience}
+          setIsEditing={setIsEditingExperience}
+        />
       </aside>
       <main className="cv">
         <PersonalDisplay personal={personalSubmitted} />
         <EducationDisplay education={educationSubmitted} />
+        <ExperienceDisplay experience={experienceSubmitted} />
       </main>
     </div>
   );
