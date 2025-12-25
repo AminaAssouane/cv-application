@@ -11,6 +11,7 @@ export function ExperienceForm({
   }
   return (
     <>
+      <h2>Experience</h2>
       <label>
         Company Name :
         <input

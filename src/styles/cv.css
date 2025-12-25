@@ -4,17 +4,92 @@
   padding: 0;
 }
 
+header {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 70px;
+  padding-top: 17px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 1fr 2fr;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 .sidebar {
   background-color: #f4f4f4;
   padding: 1rem;
+  border-right: 1px solid #ddd;
 }
 
-.content {
+.sidebar label {
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: #333;
+}
+
+.sidebar input {
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.sidebar button {
+  margin-top: 1rem;
+  padding: 0.6rem 1rem;
+  border: none;
+  background-color: #2b6cb0;
+  color: white;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.sidebar button:hover {
+  background-color: #1e4e8c;
+}
+
+.sidebar-section {
+  margin: 20px;
   background-color: white;
-  padding: 2rem;
+  padding: 20px;
+  border-radius: 10px;
+  border: 1px solid lightgray;
+  box-shadow: 10px 12px 6px rgba(0, 0, 0, 0.05);
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+}
+
+.cv {
+  background-color: white;
+  padding: 3rem;
+}
+
+.cv h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.cv p {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+  color: #444;
+}
+
+.personal-section {
+  text-align: center;
+}
+
+input {
+  border-color: lightgray;
+  background-color: #f4f4f4;
 }

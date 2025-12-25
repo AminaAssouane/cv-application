@@ -12,6 +12,7 @@ export function PersonalForm({
 
   return (
     <>
+      <h2>Personal information</h2>
       <label>
         Name :
         <input

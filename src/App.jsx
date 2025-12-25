@@ -47,37 +47,47 @@ export function App() {
   const [isEditingExperience, setIsEditingExperience] = useState(true);
 
   return (
-    <div className="layout">
-      <aside className="sidebar">
-        <PersonalForm
-          personal={personal}
-          setPersonal={setPersonal}
-          setSubmitted={setPersonalSubmitted}
-          isEditing={isEditingPersonal}
-          setIsEditing={setIsEditingPersonal}
-        />
+    <>
+      <header>CV Application</header>
 
-        <EducationForm
-          education={education}
-          setEducation={setEducation}
-          setSubmitted={setEducationSubmitted}
-          isEditing={isEditingEducation}
-          setIsEditing={setIsEditingEducation}
-        />
-
-        <ExperienceForm
-          experience={experience}
-          setExperience={setExperience}
-          setSubmitted={setExperienceSubmitted}
-          isEditing={isEditingExperience}
-          setIsEditing={setIsEditingExperience}
-        />
-      </aside>
-      <main className="cv">
-        <PersonalDisplay personal={personalSubmitted} />
-        <EducationDisplay education={educationSubmitted} />
-        <ExperienceDisplay experience={experienceSubmitted} />
-      </main>
-    </div>
+      <div className="layout">
+        <aside className="sidebar">
+          <section className="sidebar-section">
+            <PersonalForm
+              personal={personal}
+              setPersonal={setPersonal}
+              setSubmitted={setPersonalSubmitted}
+              isEditing={isEditingPersonal}
+              setIsEditing={setIsEditingPersonal}
+            />
+          </section>
+          <section className="sidebar-section">
+            <EducationForm
+              education={education}
+              setEducation={setEducation}
+              setSubmitted={setEducationSubmitted}
+              isEditing={isEditingEducation}
+              setIsEditing={setIsEditingEducation}
+            />
+          </section>
+          <section className="sidebar-section">
+            <ExperienceForm
+              experience={experience}
+              setExperience={setExperience}
+              setSubmitted={setExperienceSubmitted}
+              isEditing={isEditingExperience}
+              setIsEditing={setIsEditingExperience}
+            />
+          </section>
+        </aside>
+        <main className="cv">
+          <section className="cv-section personal-section">
+            <PersonalDisplay personal={personalSubmitted} />
+          </section>
+          <EducationDisplay education={educationSubmitted} />
+          <ExperienceDisplay experience={experienceSubmitted} />
+        </main>
+      </div>
+    </>
   );
 }
