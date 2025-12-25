@@ -84,8 +84,12 @@ export function App() {
           <section className="cv-section personal-section">
             <PersonalDisplay personal={personalSubmitted} />
           </section>
-          <EducationDisplay education={educationSubmitted} />
-          <ExperienceDisplay experience={experienceSubmitted} />
+          <section className="cv-section education-section">
+            <EducationDisplay education={educationSubmitted} />
+          </section>
+          <section className="cv-section experience-section">
+            <ExperienceDisplay experience={experienceSubmitted} />
+          </section>
         </main>
       </div>
     </>
