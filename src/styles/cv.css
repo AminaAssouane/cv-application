@@ -14,6 +14,11 @@ header {
   border-bottom: 1px solid #ddd;
 }
 
+input {
+  border-color: lightgray;
+  background-color: #f4f4f4;
+}
+
 .layout {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -74,8 +79,8 @@ header {
   padding: 3rem;
 }
 
-.cv h2 {
-  font-size: 2rem;
+.cv h1 {
+  font-size: 3.5rem;
   margin-bottom: 0.5rem;
 }
 
@@ -89,7 +94,14 @@ header {
   text-align: center;
 }
 
-input {
-  border-color: lightgray;
-  background-color: #f4f4f4;
+.personal-section p {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
 }
