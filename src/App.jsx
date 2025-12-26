@@ -21,30 +21,28 @@ export function App() {
   const [isEditingPersonal, setIsEditingPersonal] = useState(true);
 
   // Education
-  const [education, setEducation] = useState({
-    schoolName: "",
-    titleStudy: "",
-    dateStudy: "",
-  });
-  const [educationSubmitted, setEducationSubmitted] = useState({
-    schoolName: "",
-    titleStudy: "",
-    dateStudy: "",
-  });
-  const [isEditingEducation, setIsEditingEducation] = useState(true);
+  const [education, setEducation] = useState([
+    {
+      id: crypto.randomUUID(),
+      schoolName: "",
+      titleStudy: "",
+      dateStudy: "",
+      isEditing: true,
+    },
+  ]);
+  const [educationSubmitted, setEducationSubmitted] = useState([]);
 
   // Experience
-  const [experience, setExperience] = useState({
-    companyName: "",
-    positionTitle: "",
-    dateWork: "",
-  });
-  const [experienceSubmitted, setExperienceSubmitted] = useState({
-    companyName: "",
-    positionTitle: "",
-    dateWork: "",
-  });
-  const [isEditingExperience, setIsEditingExperience] = useState(true);
+  const [experience, setExperience] = useState([
+    {
+      id: crypto.randomUUID(),
+      positionTitle: "",
+      companyName: "",
+      dateWork: "",
+      isEditing: true,
+    },
+  ]);
+  const [experienceSubmitted, setExperienceSubmitted] = useState([]);
 
   return (
     <>
@@ -66,8 +64,6 @@ export function App() {
               education={education}
               setEducation={setEducation}
               setSubmitted={setEducationSubmitted}
-              isEditing={isEditingEducation}
-              setIsEditing={setIsEditingEducation}
             />
           </section>
           <section className="sidebar-section">
@@ -75,8 +71,6 @@ export function App() {
               experience={experience}
               setExperience={setExperience}
               setSubmitted={setExperienceSubmitted}
-              isEditing={isEditingExperience}
-              setIsEditing={setIsEditingExperience}
             />
           </section>
         </aside>
